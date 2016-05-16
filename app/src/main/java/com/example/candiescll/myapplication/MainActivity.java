@@ -1,5 +1,6 @@
 package com.example.candiescll.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
@@ -16,8 +17,11 @@ public class MainActivity extends Activity implements OnTouchListener {
      int screenWidth,screenHeight;
     int lastX,lastY;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = new Intent(MainActivity.this,MusicServer.class);
+        startService(intent);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         iv=(ImageView) findViewById(R.id.imageView1);
@@ -67,7 +71,7 @@ public class MainActivity extends Activity implements OnTouchListener {
                         }
 
 
-                    v.layout(left, top, left+iv.getWidth(), top+iv.getHeight());
+                    v.layout(left, top, left+iv.getWidth(), top+ iv.getHeight());
                      lastX=(int)event.getRawX();
                     lastY=(int)event.getRawY();
 
